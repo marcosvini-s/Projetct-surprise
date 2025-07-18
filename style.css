@@ -1,158 +1,153 @@
 * {
-    box-sizing: border-box;
-  }
+  box-sizing: border-box;
+}
 
 html, body {
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden; 
+  overflow: hidden;
 }
-
 
 body {
-    font-family: Hepta Slab, sans-serif;
-    font-weight: 500;
-    background: #efecdb;
-    color: #5D4037;
-  }
-a{
-    text-decoration: none;
+  font-family: 'Hepta Slab', sans-serif;
+  font-weight: 500;
+  background: #efecdb;
+  color: #5D4037;
 }
-  .img-caption {
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    text-align: center;
-    margin-top: 1vh;
-    font-size: 1rem;
-    color: #5D4037;
-    max-width: 45vh;
-  }
-  
-  .img-wrapper:hover .img-caption {
-    opacity: 1;
+
+a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+}
+
+.img-caption {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  text-align: center;
+  margin-top: 1vh;
+  font-size: 1rem;
+  color: #5D4037;
+  max-width: 45vh;
+}
+
+.img-wrapper:hover .img-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scrollbar hidden */
+::-webkit-scrollbar {
+  width: 1px;
+  height: 1px;
+}
+::-webkit-scrollbar-button {
+  width: 1px;
+  height: 1px;
+}
+
+.external {
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+.horizontal-scroll-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vh;
+  height: 100vw;
+  transform: rotate(-90deg) translateY(-100vh);
+  transform-origin: right top;
+  overflow: hidden;
+  padding: 0;
+  perspective: 1px;
+  transform-style: preserve-3d;
+  padding-bottom: 10rem;
+}
+
+.scroll-track {
+  display: flex;
+  flex-direction: column;
+  animation: scrollLoop 60s linear infinite;
+  will-change: transform;
+}
+
+@keyframes scrollLoop {
+  0% {
     transform: translateY(0);
   }
+  100% {
+    transform: translateY(-50%);
+  }
+}
 
+.img-wrapper {
+  transform: rotate(90deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 40vh;
+  transform-origin: 50% 50%;
+  transform: rotate(90deg) translateZ(.1px) scale(0.9) translateX(0px) translateY(-3vh);
+  transition: 1s;
+}
 
+.img-wrapper:hover {
+  min-height: 65vh;
+}
 
+.img-wrapper a {
+  overflow: hidden;
+  display: block;
+  padding: 1vh;
+  background: #efecdb;
+  box-shadow: 0 10px 50px #5f2f1182;
+}
 
-::-webkit-scrollbar {
-    width: 1px;
-    height: 1px;
-  }
-  
-  ::-webkit-scrollbar-button {
-    width: 1px;
-    height: 1px;
-  }
-  .external {
-    overflow: hidden;
-    height: 100vh;
-    width: 100vw;
-    position: relative;
-  }
-  
-  .horizontal-scroll-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100vh;
-    height: 100vw;
-    transform: rotate(-90deg) translateY(-100vh);
-    transform-origin: right top;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding: 0;
-    perspective: 1px;
-      transform-style: preserve-3d;
-    padding-bottom: 10rem;
-  }
-  .img-wrapper {
-    transform: rotate(90deg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 40vh;
-    transform-origin: 50% 50%;
-    transform: rotate(90deg) translateZ(.1px) scale(0.9) translateX(0px) translateY(-3vh);
-    transition: 1s;
-  }
-  
-  .img-wrapper:hover {
-   min-height: 65vh;
-  }
-  
-  .slower {
-    transform: rotate(90deg) translateZ(-.2px) scale(1.1) translateX(0%) translateY(-10vh);
-  }
-  .slower1 {
-    transform: rotate(90deg) translateZ(-.25px) scale(1.05) translateX(0%) translateY(8vh);
-  }
-  .slower2 {
-    transform: rotate(90deg) translateZ(-.3px) scale(1.3) translateX(0%) translateY(2vh);
-  }
-  .slower-down {
-    transform: rotate(90deg) translateZ(-.2px) scale(1.1) translateX(0%) translateY(16vh) ;
-  }
-  .faster {
-    transform: rotate(90deg) translateZ(.15px) scale(0.8) translateX(0%) translateY(14vh) ;
-  }
-  .faster1 {
-    transform: rotate(90deg) translateZ(.05px) scale(0.8) translateX(0%) translateY(10vh) ;
-  }
-  .fastest {
-    transform: rotate(90deg) translateZ(.22px) scale(0.7) translateX(-10vh) translateY(-15vh) ;
-  }
-  .vertical {
-     transform: rotate(90deg) translateZ(-.15px) scale(1.15) translateX(0%) translateY(0%) ;
-  }
-  .last {
-    transform: rotate(90deg) translateZ(-.2px) scale(1.1) translateX(25vh) translateY(-8vh) ;
-  }
-  .scroll-info, header {
-    position: absolute;
-    left: 1rem;
-  }
-  
-  
-  header {
-    bottom: 1rem;
-  }
-  .scroll-info {
-    top: 1rem;
-  }
-  a {
-    color: inherit;
-    font-weight: 500;
-    
-  }
-  h1 {
-    font-weight: 300;
-    font-size: 1rem;
-  }
-  
-  .img-wrapper a {
-    overflow: hidden;
-    display: block;
-    padding: 1vh ;
-    background: #efecdb;
-    box-shadow: 0 10px 50px #5f2f1182;
-  }
-  img {
-    max-width: 45vh;
-    max-height: 50vh;
-    transition: .5s;
-    vertical-align: top;
-    filter: saturate(40%) sepia(30%) hue-rotate(5deg);
-  }
-  a:hover img {
-    filter: none;
-  }
-  
+img {
+  max-width: 45vh;
+  max-height: 50vh;
+  transition: .5s;
+  vertical-align: top;
+  filter: saturate(40%) sepia(30%) hue-rotate(5deg);
+}
 
-.text{
-  position: relative;
+a:hover img {
+  filter: none;
+}
+
+/* Parallax velocidades */
+.slower {
+  transform: rotate(90deg) translateZ(-.2px) scale(1.1) translateX(0%) translateY(-10vh);
+}
+.slower1 {
+  transform: rotate(90deg) translateZ(-.25px) scale(1.05) translateX(0%) translateY(8vh);
+}
+.slower2 {
+  transform: rotate(90deg) translateZ(-.3px) scale(1.3) translateX(0%) translateY(2vh);
+}
+.slower-down {
+  transform: rotate(90deg) translateZ(-.2px) scale(1.1) translateX(0%) translateY(16vh);
+}
+.faster {
+  transform: rotate(90deg) translateZ(.15px) scale(0.8) translateX(0%) translateY(14vh);
+}
+.faster1 {
+  transform: rotate(90deg) translateZ(.05px) scale(0.8) translateX(0%) translateY(10vh);
+}
+.fastest {
+  transform: rotate(90deg) translateZ(.22px) scale(0.7) translateX(-10vh) translateY(-15vh);
+}
+.vertical {
+  transform: rotate(90deg) translateZ(-.15px) scale(1.15) translateX(0%) translateY(0%);
+}
+.last {
+  transform: rotate(90deg) translateZ(-.2px) scale(1.1) translateX(25vh) translateY(-8vh);
 }
